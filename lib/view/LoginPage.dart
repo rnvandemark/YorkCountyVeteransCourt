@@ -83,7 +83,7 @@ class LoginPageState extends State<LoginPage> {
           {
             Navigator.of(context).push(
                 MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return new VeteranUserLandingPage(user: validUser);
+                  return VeteranUserLandingPage(user: validUser);
                 })
             );
           }

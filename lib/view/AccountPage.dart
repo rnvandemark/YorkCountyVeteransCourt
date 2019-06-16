@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../util/AbstractUser.dart';
+import '../util/CommonAppBar.dart';
 
 class AccountPage extends StatefulWidget {
 
@@ -16,10 +17,7 @@ class AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            automaticallyImplyLeading: true,
-            title: Text('My Account')
-        ),
+        appBar: CommonAppBar("My Account", true, context),
         body: Center(
           child: Container(
             color: Colors.white,
@@ -33,7 +31,7 @@ class AccountPageState extends State<AccountPage> {
                     height: 155.0,
                     child: Image.asset(
                       "lib/assets/default_user_icon.png",
-                      fit: BoxFit.contain,
+                      fit: BoxFit.contain
                     )
                   ),
                   SizedBox(height: 45.0),
@@ -41,7 +39,7 @@ class AccountPageState extends State<AccountPage> {
                     '${widget.user.firstName} ${widget.user.lastName}',
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold)
                   )
                 ]
               )
