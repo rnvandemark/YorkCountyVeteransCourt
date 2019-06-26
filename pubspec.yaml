@@ -34,5 +34,6 @@ flutter:
     - lib/assets/york_county_pa_logo.png
     - lib/assets/default_user_icon.png
     - lib/assets/fluid_bottle.jpg
-    - lib/assets/irked-smiley-face.jpg
+    - lib/assets/irked_smiley_face.jpg
     - lib/assets/warning.png
+    - lib/assets/documents.png

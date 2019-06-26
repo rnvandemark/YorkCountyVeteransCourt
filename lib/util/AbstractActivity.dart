@@ -8,9 +8,11 @@ class AbstractActivityDescriptor {
   final String iconImageURL;
   final StatefulWidget resultingPage;
 
-  const AbstractActivityDescriptor(
-      {this.activityName, this.iconImageURL, this.resultingPage}
-      );
+  const AbstractActivityDescriptor({
+    this.activityName,
+    this.iconImageURL,
+    this.resultingPage
+  });
 }
 
 class AbstractActivity extends StatelessWidget {
@@ -19,7 +21,7 @@ class AbstractActivity extends StatelessWidget {
       fontSize: 18,
       color: SECONDARY_COLOR
   );
-  static final double iconSize = 150.0;
+  static final double iconSize = 175.0;
 
   final bool isFirstRow;
   final String activityName;
@@ -34,8 +36,7 @@ class AbstractActivity extends StatelessWidget {
   });
 
   AbstractActivity.fromDescriptor(
-      AbstractActivityDescriptor descriptor, bool isFirstRow
-      ) : this(
+      AbstractActivityDescriptor descriptor, bool isFirstRow) : this(
       isFirstRow: isFirstRow,
       activityName: descriptor.activityName,
       iconImageURL: descriptor.iconImageURL,
@@ -54,10 +55,10 @@ class AbstractActivity extends StatelessWidget {
             children: <Widget> [
               Padding(
                   padding: EdgeInsets.fromLTRB(
-                    20.0,
-                    this.isFirstRow ? 0.0 : 20.0,
-                    20.0,
-                    0.0
+                      20.0,
+                      this.isFirstRow ? 0.0 : 20.0,
+                      20.0,
+                      0.0
                   ),
                   child: SizedBox(
                     child: Image.asset(

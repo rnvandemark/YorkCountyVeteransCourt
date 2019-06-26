@@ -7,6 +7,8 @@ import '../util/CommonAppBar.dart';
 import '../model/VeteranUser.dart';
 
 import '../view/AccountPage.dart';
+import '../view/AboutPage.dart';
+import '../view/SendSOSPage.dart';
 import '../view/UnfinishedPage.dart';
 
 class VeteranUserLandingPage extends StatefulWidget {
@@ -52,13 +54,18 @@ class VeteranUserLandingPageState extends State<VeteranUserLandingPage> {
                           ),
                           AbstractActivityDescriptor(
                               activityName: "Track Mood",
-                              iconImageURL: "lib/assets/irked-smiley-face.jpg",
+                              iconImageURL: "lib/assets/irked_smiley_face.jpg",
                               resultingPage: UnfinishedPage()
                           ),
                           AbstractActivityDescriptor(
                               activityName: "Edit S.O.S. Contacts",
                               iconImageURL: "lib/assets/warning.png",
                               resultingPage: UnfinishedPage()
+                          ),
+                          AbstractActivityDescriptor(
+                              activityName: "About",
+                              iconImageURL: "lib/assets/documents.png",
+                              resultingPage: AboutPage()
                           )
                         ])
                       ]
@@ -70,7 +77,7 @@ class VeteranUserLandingPageState extends State<VeteranUserLandingPage> {
                   child: GestureDetector(
                       onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<Null>(builder: (BuildContext context) {
-                            return UnfinishedPage();
+                            return SendSOSPage(user: widget.user);
                           })),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,

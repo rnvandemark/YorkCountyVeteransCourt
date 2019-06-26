@@ -19,32 +19,32 @@ class AccountPageState extends State<AccountPage> {
     return Scaffold(
         appBar: CommonAppBar("My Account", true, context),
         body: Center(
-          child: Container(
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(36.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                    height: 155.0,
-                    child: Image.asset(
-                      "lib/assets/default_user_icon.png",
-                      fit: BoxFit.contain
+            child: Container(
+                color: Colors.white,
+                child: Padding(
+                    padding: const EdgeInsets.all(36.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          SizedBox(
+                              height: 155.0,
+                              child: Image.asset(
+                                  "lib/assets/default_user_icon.png",
+                                  fit: BoxFit.contain
+                              )
+                          ),
+                          SizedBox(height: 45.0),
+                          Text(
+                              '${widget.user.firstName} ${widget.user.lastName}',
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(fontWeight: FontWeight.bold)
+                          )
+                        ]
                     )
-                  ),
-                  SizedBox(height: 45.0),
-                  Text(
-                    '${widget.user.firstName} ${widget.user.lastName}',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold)
-                  )
-                ]
-              )
+                )
             )
-          )
         )
     );
   }

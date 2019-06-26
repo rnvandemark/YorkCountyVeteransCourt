@@ -24,7 +24,7 @@ class UnfinishedPageState extends State<UnfinishedPage> {
             Padding(
               padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
-                "Page Not Yet Supported",
+                "This page is not yet supported!",
                 style: TextStyle(
                     fontSize: 42,
                     color: FOREGROUND_COLOR
@@ -33,7 +33,7 @@ class UnfinishedPageState extends State<UnfinishedPage> {
               ),
             ),
             Text(
-              "Check back in here later!",
+              "Check back in here later.",
               style: TextStyle(
                 fontSize: 24,
                 color: SECONDARY_COLOR
