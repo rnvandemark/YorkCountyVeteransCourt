@@ -22,7 +22,9 @@ class LoginPageState extends State<LoginPage> {
       fontSize: 20.0
   );
 
-  bool loginFault = false;
+  int attemptState = 0;
+  String emailFieldValue = "";
+  String passwordFieldValue = "";
 
   @override
   void initState() {
@@ -34,14 +36,20 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    if (this.attemptState == 1) {
+      emailController.text = this.emailFieldValue;
+      passwordController.text = this.passwordFieldValue;
+    }
 
     final OutlineInputBorder inputFieldBorder = OutlineInputBorder(
         borderRadius: BorderRadius.circular(32.0),
         borderSide: BorderSide(
-            color: this.loginFault ? Colors.red : FOREGROUND_COLOR,
+            color: (this.attemptState == 2) ? Colors.red : FOREGROUND_COLOR,
             width: 2.0
         )
     );
+
+    final FocusNode inputFieldFocusNode = FocusNode();
 
     final TextField emailField = TextField(
         controller: emailController,
@@ -52,7 +60,8 @@ class LoginPageState extends State<LoginPage> {
             hintText: "Email",
             border: inputFieldBorder,
             enabledBorder: inputFieldBorder
-        )
+        ),
+        focusNode: inputFieldFocusNode
     );
 
     final TextField passwordField = TextField(
@@ -62,6 +71,14 @@ class LoginPageState extends State<LoginPage> {
         decoration: emailField.decoration.copyWith(hintText: "Password")
     );
 
+    inputFieldFocusNode.addListener(() {
+      if (this.attemptState == 2) {
+        this.setState(() {
+          this.attemptState = 1;
+        });
+      }
+    });
+
     final Material loginButton = Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(32.0),
@@ -70,14 +87,18 @@ class LoginPageState extends State<LoginPage> {
             minWidth: MediaQuery.of(context).size.width,
             padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             onPressed: () {
+              this.emailFieldValue = "";
+              this.passwordFieldValue = "";
+
               AbstractUser validUser = db.validateUserCredentials(
                   emailController.text,
                   passwordController.text
               );
 
               if (validUser == null) {
-                setState(() => this.loginFault = true);
+                setState(() => this.attemptState = 2);
               } else {
+                this.attemptState = 0;
                 Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
                       return VeteranUserLandingPage(user: validUser);

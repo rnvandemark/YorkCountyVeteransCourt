@@ -8,6 +8,7 @@ import '../model/VeteranUser.dart';
 
 import '../view/AccountPage.dart';
 import '../view/AboutPage.dart';
+import '../view/EditSOSContactsPage.dart';
 import '../view/SendSOSPage.dart';
 import '../view/UnfinishedPage.dart';
 
@@ -35,6 +36,7 @@ class VeteranUserLandingPageState extends State<VeteranUserLandingPage> {
                     style: TextStyle(
                         fontSize: 36,
                         color: FOREGROUND_COLOR
+
                     )
                 ),
               ),
@@ -60,7 +62,7 @@ class VeteranUserLandingPageState extends State<VeteranUserLandingPage> {
                           AbstractActivityDescriptor(
                               activityName: "Edit S.O.S. Contacts",
                               iconImageURL: "lib/assets/warning.png",
-                              resultingPage: UnfinishedPage()
+                              resultingPage: EditSOSContactsPage(user: widget.user)
                           ),
                           AbstractActivityDescriptor(
                               activityName: "About",

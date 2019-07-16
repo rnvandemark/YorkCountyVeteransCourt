@@ -139,7 +139,7 @@ class SendSOSPageState extends State<SendSOSPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                    icon: Icon(Icons.phonelink_ring),
+                    icon: Icon(IN_APP_CALL_ICON),
                     onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute<Null>(builder: (BuildContext context) {
                           return UnfinishedPage();
@@ -165,7 +165,7 @@ class SendSOSPageState extends State<SendSOSPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                    icon: Icon(Icons.phone),
+                    icon: Icon(PHONE_CALL_ICON),
                     onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute<Null>(builder: (BuildContext context) {
                           return UnfinishedPage();
@@ -191,7 +191,7 @@ class SendSOSPageState extends State<SendSOSPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                    icon: Icon(Icons.message),
+                    icon: Icon(PHONE_SMS_ICON),
                     onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute<Null>(builder: (BuildContext context) {
                           return UnfinishedPage();
@@ -217,7 +217,7 @@ class SendSOSPageState extends State<SendSOSPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                    icon: Icon(Icons.email),
+                    icon: Icon(EMAIL_ICON),
                     onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute<Null>(builder: (BuildContext context) {
                           return UnfinishedPage();
