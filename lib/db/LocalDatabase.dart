@@ -52,6 +52,15 @@ class LocalDatabase extends AbstractDatabase {
         phoneNumber: ""
     ));
 
+    veteranUsersRegistrar.add(VeteranUser(
+        ++id,
+        "example_katekennelly@ycp.edu",
+        "password",
+        "Kate",
+        "Kennelly",
+        phoneNumber: "1234567890"
+    ));
+
     sosContactsRegistrar = List<SOSContact>();
 
     // Give Nick Vandy SOS Contacts of: Dave Fyfe and Billy Amtmann
@@ -105,5 +114,71 @@ class LocalDatabase extends AbstractDatabase {
     }
 
     return contacts;
+  }
+
+  @override
+  bool changeAbstractUserInfo(int userId, String newFirstName, String newLastName, String newEmail) {
+    for (VeteranUser user in veteranUsersRegistrar) {
+      if (user.uniqueID == userId) {
+        if (newFirstName != null) {
+          user.firstName = newFirstName;
+        }
+        if (newLastName != null) {
+          user.lastName = newLastName;
+        }
+        if (newEmail != null) {
+          user.email = newEmail;
+        }
+        return true;
+      }
+    }
+
+    // TODO:
+    // will need to write more for loops when new types of
+    // Abstract Users are created
+
+    return false;
+  }
+
+  String getAbstractUserFirstName(int userId) {
+    for (VeteranUser user in veteranUsersRegistrar) {
+      if (user.uniqueID == userId) {
+        return user.firstName;
+      }
+    }
+
+    // TODO:
+    // will need to write more for loops when new types of
+    // Abstract Users are created
+
+    return null;
+  }
+
+  String getAbstractUserLastName(int userId) {
+    for (VeteranUser user in veteranUsersRegistrar) {
+      if (user.uniqueID == userId) {
+        return user.lastName;
+      }
+    }
+
+    // TODO:
+    // will need to write more for loops when new types of
+    // Abstract Users are created
+
+    return null;
+  }
+
+  String getAbstractUserEmail(int userId) {
+    for (VeteranUser user in veteranUsersRegistrar) {
+      if (user.uniqueID == userId) {
+        return user.email;
+      }
+    }
+
+    // TODO:
+    // will need to write more for loops when new types of
+    // Abstract Users are created
+
+    return null;
   }
 }

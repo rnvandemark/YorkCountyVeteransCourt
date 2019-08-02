@@ -2,7 +2,7 @@ import '../util/AbstractUser.dart';
 
 class VeteranUser extends AbstractUser {
 
-  final String phoneNumber;
+  String phoneNumber;
 
   VeteranUser(
       int uniqueID,
@@ -12,4 +12,12 @@ class VeteranUser extends AbstractUser {
       String lastName,
       {this.phoneNumber})
       : super(uniqueID, email, password, firstName, lastName);
+
+  String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 }
